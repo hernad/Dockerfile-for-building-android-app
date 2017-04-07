@@ -79,11 +79,11 @@ RUN echo "no" | android create avd \
                 --skin WVGA800 \
                 --sdcard 512M
 
+RUN apt-get install git vim -y
+
 # Cleaning
 RUN apt-get clean
 
 # GO to workspace
-RUN mkdir -p /opt/workspace
-WORKDIR /opt/workspace
-
-
+#RUN mkdir -p /opt/workspace
+WORKDIR /build
