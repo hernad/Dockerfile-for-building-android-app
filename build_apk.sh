@@ -20,7 +20,9 @@ git log -1
 
 #http://stackoverflow.com/questions/38096225/automatically-accept-all-sdk-licences/38381577#38381577
 
-(while sleep 3; do echo "y"; done) | $ANDROID_HOME/tools/android update sdk -u
+#(while sleep 3; do echo "y"; done) | $ANDROID_HOME/tools/android update sdk -u
+(while sleep 3; do echo "y"; done) | $ANDROID_HOME/tools/android update sdk --no-ui --all --filter build-tools-25.0.1,android-25,extra-android-m2repository 
+#$ANDROID_HOME/tools/android update 
 
 ./gradlew assembleDebug
 ls $APK_DIR
