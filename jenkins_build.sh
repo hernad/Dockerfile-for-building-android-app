@@ -1,5 +1,10 @@
 #!/bin/bash
 
+GITHUB_USER=${1:-hernad}
+ANDROID_PROJECT=H4-android
+CONTAINER_NAME=android-build-$GITHUB_USER-$ANDROID_PROJECT
+
+
 if ! docker images android-dev | grep -q android-dev
 then
   docker build -t android-dev .
@@ -10,10 +15,6 @@ if ! docker images android-dev:$GITHUB_USER | grep -q android-dev
 then
   docker tag android-dev android-dev:$GITHUB_USER
 fi
-
-GITHUB_USER=${1:-hernad}
-ANDROID_PROJECT=H4-android
-CONTAINER_NAME=android-build-$GITHUB_USER-$ANDROID_PROJECT
 
 docker rm -f  $CONTAINER_NAME
 
