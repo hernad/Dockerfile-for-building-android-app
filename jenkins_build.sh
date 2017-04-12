@@ -7,6 +7,7 @@ fi
 
 # this version is actually used
 if ! docker images android-dev:$GITHUB_USER | grep -q android-dev
+then
   docker tag android-dev android-dev:$GITHUB_USER
 fi
 
