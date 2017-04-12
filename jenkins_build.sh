@@ -12,6 +12,7 @@ docker rm -f android-build-$ANDROID_PROJECT
 
 docker run -ti \
        	-v $(pwd)/dot.android:/root/.android \
+       	-v $(pwd)/dot.m2:/root/.m2 \
        	-v $(pwd)/build:/build \
        	-v $(pwd)/apk:/apk \
 	-v $(pwd)/build_apk.sh:/build_apk.sh \
