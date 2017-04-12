@@ -22,7 +22,6 @@ RUN apt-get install -y openjdk-8-jdk
 # RUN mkdir -p /user/local/android-sdk-linux
 
 
-
 # Download Android SDK
 RUN apt-get -y install wget \
   && cd /usr/local \
@@ -82,7 +81,7 @@ RUN echo "no" | android create avd \
 RUN apt-get install git vim -y
 
 # Cleaning
-RUN apt-get clean
+RUN apt-get clean -y
 
 # GO to workspace
 #RUN mkdir -p /opt/workspace
