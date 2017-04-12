@@ -22,7 +22,7 @@ git log -1
 
 ls -lh $ANDROID_HOME/tools/android
 
-(while sleep 3; do echo "y"; done) | $ANDROID_HOME/tools/android update sdk --no-ui --all --filter build-tools-25.0.2,android-25,extra-android-m2repository 
+#(while sleep 3; do echo "y"; done) | $ANDROID_HOME/tools/android update sdk --no-ui --all --filter build-tools-25.0.2,android-25,extra-android-m2repository 
 
 ./gradlew assembleDebug
 ls $APK_DIR
