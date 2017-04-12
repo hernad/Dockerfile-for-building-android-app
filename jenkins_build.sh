@@ -3,7 +3,8 @@
 GITHUB_USER=${1:-hernad}
 ANDROID_PROJECT=H4-android
 CONTAINER_NAME=android-build-$GITHUB_USER-$ANDROID_PROJECT
-
+#IMG=android-dev:$GITHUB_USER
+IMG=android-dev
 
 if ! docker images android-dev | grep -q android-dev
 then
@@ -11,10 +12,10 @@ then
 fi
 
 # this version is actually used
-if ! docker images android-dev:$GITHUB_USER | grep -q android-dev
-then
-  docker tag android-dev android-dev:$GITHUB_USER
-fi
+#if ! docker images android-dev:$GITHUB_USER | grep -q android-dev
+#then
+#  docker tag android-dev android-dev:$GITHUB_USER
+#fi
 
 docker rm -f  $CONTAINER_NAME
 
@@ -24,10 +25,10 @@ docker run -t \
        	-v $(pwd)/build:/build \
        	-v $(pwd)/apk:/apk \
 	-v $(pwd)/build_apk.sh:/build_apk.sh \
-       	--name $CONTAINER_NAME android-dev:$GITHUB_USER /build_apk.sh $GITHUB_USER
+       	--name $CONTAINER_NAME $IMG /build_apk.sh $GITHUB_USER
 
 
-docker commit $CONTAINER_NAME android-dev:$GITHUB_USER
+#docker commit $CONTAINER_NAME android-dev:$GITHUB_USER
 
 cp -av apk/*.apk .
 
