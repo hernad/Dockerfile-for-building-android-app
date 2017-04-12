@@ -2,20 +2,20 @@
 
 if ! docker images android-dev | grep -q android-dev
 then
-  docker build . -t android-dev .
+  docker build -t android-dev .
 fi
 
-docker rm -f android-dev
-
 GITHUB_USER=hernad
-ANDROID_PROJECT=H8-android
+ANDROID_PROJECT=H4-android
+
+docker rm -f android-build-$ANDROID_PROJECT
 
 docker run -ti \
        	-v $(pwd)/dot.android:/root/.android \
        	-v $(pwd)/build:/build \
        	-v $(pwd)/apk:/apk \
-	-v $(pwd)/build_assembly.sh:/build_assembly.sh \
-       	--name android-dev android-dev /build_assembly.sh
+	-v $(pwd)/build_apk.sh:/build_apk.sh \
+       	--name android-dev android-dev /build_apk.sh
 
 
 
