@@ -4,7 +4,7 @@
 GITHUB_USER=${1:-hernad}
 
 ANDROID_PROJECT=H4-android
-APK_DIR=/build/$ANDROID_PROJECT/vector/build/outputs/apk
+APK_DIR=/build/$GITHUB_USER/$ANDROID_PROJECT/vector/build/outputs/apk
 
 
 mkdir /build/$GITHUB_USER
