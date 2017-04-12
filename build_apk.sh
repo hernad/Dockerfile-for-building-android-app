@@ -19,7 +19,11 @@ git pull
 git log -1
 
 ./gradlew assembleDebug
-./gradlew assembleRelease
+ls $APK_DIR
+cp -av $APK_DIR/* /apk
 
-cp -av $APK_DIR /apk
+ls $APK_DIR
+./gradlew assembleRelease
+cp -av $APK_DIR/* /apk
+
 
