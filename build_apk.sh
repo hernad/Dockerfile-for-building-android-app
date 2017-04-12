@@ -18,6 +18,10 @@ git checkout bringout -f
 git pull
 git log -1
 
+#http://stackoverflow.com/questions/38096225/automatically-accept-all-sdk-licences/38381577#38381577
+
+(while sleep 3; do echo "y"; done) | $ANDROID_HOME/tools/android update sdk -u
+
 ./gradlew assembleDebug
 ls $APK_DIR
 cp -av $APK_DIR/* /apk
